@@ -1,0 +1,23 @@
+.admin-container {
+  display: flex;
+  .admin-sidebar {
+    .pro-sidebar {
+      height: 100vh !important;
+    }
+  }
+
+  .admin-content {
+    .admin-header {
+      svg {
+        cursor: pointer;
+        font-size: 26px;
+        margin: 5px;
+      }
+    }
+
+    .admin-main {
+      margin: 10px;
+      height: calc(100vh - 36px);
+    }
+  }
+}

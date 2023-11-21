@@ -1,0 +1,51 @@
+{
+  "homepage": {
+    "title": "Có một cách tốt hơn để hỏi",
+    "subtitle": "Bạn không muốn tạo một biểu mẫu nhàm chán. Và khán giả của bạn sẽ không trả lời. Thay vào đó, tạo một biểu mẫu - và làm cho mọi người đều hạnh phúc.",
+    "start": "Bắt đầu - Miễn phí",
+    "doingQuiz": "Làm Quiz"
+  },
+  "header": {
+    "home": "Trang chủ",
+    "user": "Người dùng",
+    "admin": "Quản trị viên",
+    "login": "Đăng nhập",
+    "signup": "Đăng ký",
+    "logout": "Đăng xuất",
+    "profile": "Hồ sơ"
+  },
+  "login": {
+    "header": "Bạn chưa có tài khoản?",
+    "signup": "Đăng ký",
+    "title": "ĐĂNG NHẬP",
+    "welcome": "Xin chào, bạn là ai",
+    "password": "Mật khẩu",
+    "forgot": "Quên mật khẩu?",
+    "back": "Quay lại Trang chủ"
+  },
+  "signup": {
+    "header": "Bạn đã có tài khoản?",
+    "login": "Đăng nhập",
+    "title": "ĐĂNG KÝ",
+    "welcome": "Chào mừng",
+    "username": "Tên đăng nhập",
+    "password": "Mật khẩu",
+    "back": "Quay lại Trang chủ"
+  },
+  "listQuiz": {
+    "start": "Bắt đầu",
+    "noQuiz": "Bạn chưa có bài Quiz nào"
+  },
+  "detailsQuiz": {
+    "prev": "Trước",
+    "next": "Sau",
+    "finish": "Kết thúc"
+  },
+  "modalResult": {
+    "title": "Kết quả",
+    "totalQuestion": "Tổng số câu hỏi:",
+    "totalCorrectAnswer": "Tổng số câu trả lời chính xác",
+    "showAnswer": "Hiển thị câu trả lời",
+    "close": "Đóng"
+  }
+}

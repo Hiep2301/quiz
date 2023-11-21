@@ -1,0 +1,16 @@
+.manage-user-container {
+  .title {
+    font-size: 30px;
+    color: #303133;
+    font-weight: bold;
+  }
+
+  .user-content {
+    margin-top: 25px;
+
+    .btn-add-user {
+      float: right;
+      margin-bottom: 10px;
+    }
+  }
+}

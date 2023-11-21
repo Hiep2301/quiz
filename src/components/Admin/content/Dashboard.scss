@@ -1,0 +1,33 @@
+.dashboard-container {
+  .title {
+    font-size: 30px;
+    color: #303133;
+    font-weight: bold;
+  }
+
+  .content {
+    margin-top: 150px;
+
+    .content-left {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: space-evenly;
+
+      .content-left-child {
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: 20px;
+        gap: 5px;
+        span {
+          font-size: 20px;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+}

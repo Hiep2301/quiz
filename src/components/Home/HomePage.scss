@@ -1,0 +1,41 @@
+.homepage-container {
+  video {
+    position: fixed;
+    bottom: -60px;
+    width: 100vw;
+  }
+
+  .homepage-content {
+    position: relative;
+    z-index: 100;
+    margin-left: 150px;
+    margin-top: 150px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 35%;
+
+    .homepage-title {
+      font-size: 40px;
+      font-weight: bold;
+    }
+
+    .homepage-subtitle {
+      font-size: 20px;
+    }
+
+    .homepage-btn {
+      button {
+        border-radius: 5px;
+        padding: 0 15px;
+        background: #303030;
+        color: #fff;
+        height: 40px;
+
+        &:hover {
+          background: #000;
+        }
+      }
+    }
+  }
+}

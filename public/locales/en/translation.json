@@ -1,0 +1,51 @@
+{
+  "homepage": {
+    "title": "There's a better way to ask",
+    "subtitle": "You don't want to make a boring form. And your audience won't answer one. Create a typeform instead - and make everyone happy.",
+    "start": "Get started - It's free",
+    "doingQuiz": "Doing Quiz Now"
+  },
+  "header": {
+    "home": "Home",
+    "user": "User",
+    "admin": "Admin",
+    "login": "Log in",
+    "signup": "Sign up",
+    "logout": "Log out",
+    "profile": "Profile"
+  },
+  "login": {
+    "header": "Don't have an account yet?",
+    "signup": "Sign up",
+    "title": "LOGIN",
+    "welcome": "Hello, who's this",
+    "password": "Password",
+    "forgot": "Forgot password?",
+    "back": "Go to Home Page"
+  },
+  "signup": {
+    "header": "Already have an account?",
+    "login": "Log in",
+    "title": "SIGN UP",
+    "welcome": "Welcom",
+    "username": "Username",
+    "password": "Password",
+    "back": "Go to Home Page"
+  },
+  "listQuiz": {
+    "start": "Start now",
+    "noQuiz": "You don't have any quiz now"
+  },
+  "detailsQuiz": {
+    "prev": "Prev",
+    "next": "Next",
+    "finish": "Finish"
+  },
+  "modalResult": {
+    "title": "Your result",
+    "totalQuestion": "Total question:",
+    "totalCorrectAnswer": "Total correct answer:",
+    "showAnswer": "Show answer",
+    "close": "Close"
+  }
+}

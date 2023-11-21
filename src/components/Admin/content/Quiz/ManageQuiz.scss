@@ -1,0 +1,17 @@
+.quiz-container {
+  .title {
+    font-size: 30px;
+    font-weight: 600;
+  }
+
+  .add-new {
+    margin-top: 20px;
+
+    .image-preview {
+      margin-top: 10px;
+      border-radius: 4px;
+      border: 2px dashed #000;
+      text-align: center;
+    }
+  }
+}

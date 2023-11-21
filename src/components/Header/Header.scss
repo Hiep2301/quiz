@@ -1,0 +1,31 @@
+.navbar {
+  z-index: 9;
+  background-color: rgba(0, 0, 0, 0) !important;
+  .navbar-nav {
+    .nav-link {
+      &.active {
+        color: #00bbff;
+      }
+    }
+  }
+
+  .btn-login {
+    border-radius: 5px;
+    margin-right: 15px;
+    padding: 0 15px;
+    border: 1px solid #535353;
+    height: 40px;
+  }
+
+  .btn-signup {
+    border-radius: 5px;
+    padding: 0 15px;
+    background: #303030;
+    color: #fff;
+    height: 40px;
+
+    &:hover {
+      background: #000;
+    }
+  }
+}
