@@ -5,7 +5,6 @@ import "./index.scss";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Provider } from "react-redux";
 import { store, persistor } from "./redux/store";
-// import User from "./components/User/User.jsx";
 import Admin from "./components/Admin/Admin.jsx";
 import HomePage from "./components/Home/HomePage.jsx";
 import ManageUser from "./components/Admin/content/ManageUser.jsx";
@@ -40,6 +39,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
                 path="user"
                 element={
                   <PrivateRoute>
+                    {/* ListQuiz là children của PrivateRoute */}
                     <ListQuiz />
                   </PrivateRoute>
                 }
@@ -57,6 +57,8 @@ ReactDOM.createRoot(document.getElementById("root")).render(
 
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
+
+            {/* Khi đường dẫn bị sai thì chạy vào component NotFound */}
             <Route path="*" element={<NotFound />} />
           </Routes>
           <ToastContainer

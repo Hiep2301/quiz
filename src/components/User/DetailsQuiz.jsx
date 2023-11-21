@@ -7,16 +7,17 @@ import ModalResult from "./ModalResult";
 import RightContent from "./Content/RightContent";
 import { useTranslation } from "react-i18next";
 import Breadcrumb from "react-bootstrap/Breadcrumb";
+import { toast } from "react-toastify";
 
 import "./DetailsQuiz.scss";
 
 const DetailsQuiz = () => {
-  const location = useLocation();
+  const location = useLocation(); // lấy state được truyền vào lúc navigate ở file ListQuiz.jsx
 
   const { t } = useTranslation();
 
   const params = useParams();
-  const quizId = params.id;
+  const quizId = params.id; // lấy giá trị từ param id của url ở đây là: /quiz/:id
 
   const [dataQuiz, setDataQuiz] = useState([]);
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -78,7 +79,7 @@ const DetailsQuiz = () => {
 
   const handleFinish = async () => {
     let payload = {
-      quizId: +quizId,
+      quizId: +quizId, // +quizId là chuyển về type Number
       answers: [],
     };
 
@@ -101,7 +102,10 @@ const DetailsQuiz = () => {
     let data = await postSubmitQuiz(payload);
 
     if (data && data.EC === 0) {
+      toast.success(`${data.EM}`);
+
       setIsSubmitQuiz(true);
+
       setDataModalResult({
         countCorrect: data.DT.countCorrect,
         countTotal: data.DT.countTotal,
@@ -110,25 +114,27 @@ const DetailsQuiz = () => {
 
       setShowModalResult(true);
 
-      if (data.DT && data.DT.quizData) {
+      if (data?.DT?.quizData) {
         let dataQuizClone = _.cloneDeep(dataQuiz);
-        let a = data.DT.quizData;
-        for (let q of a) {
-          for (let i = 0; i < dataQuizClone.length; i++) {
-            if (+q.questionId === +dataQuizClone[i].questionId) {
-              //update answer
-              let newAnswers = [];
-              for (let j = 0; j < dataQuizClone[i].answers.length; j++) {
-                let s = q.systemAnswers.find(
-                  (item) => +item.id === +dataQuizClone[i].answers[j].id
-                );
-                if (s) {
-                  dataQuizClone[i].answers[j].isCorrect = true;
-                }
-                newAnswers.push(dataQuizClone[i].answers[j]);
-              }
-              dataQuizClone[i].answers = newAnswers;
-            }
+
+        // Duyệt qua mỗi câu hỏi trong dữ liệu quiz
+        for (let q of data.DT.quizData) {
+          // Tìm câu hỏi tương ứng trong dataQuizClone
+          let matchingQuestion = dataQuizClone.find(
+            (question) => +question.questionId === +q.questionId
+          );
+
+          // Nếu tìm thấy câu hỏi, cập nhật câu trả lời
+          if (matchingQuestion) {
+            matchingQuestion.answers = matchingQuestion.answers.map(
+              (answer) => ({
+                ...answer,
+                // Đánh dấu câu trả lời là đúng nếu nó xuất hiện trong systemAnswers
+                isCorrect: !!q.systemAnswers.find(
+                  (sa) => +sa.id === +answer.id
+                ),
+              })
+            );
           }
         }
         setDataQuiz(dataQuizClone);

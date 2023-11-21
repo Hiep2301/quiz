@@ -1,10 +1,9 @@
 import { combineReducers } from "redux";
-import counterReducer from "./counterReducer";
 import userReducer from "./userReducer";
 
+// Kết hợp các reducer lại, ở đây chỉ có userReducer
 const rootReducer = combineReducers({
-  counter: counterReducer,
-  user: userReducer,
+  user: userReducer, // userReducer quản lý trạng thái liên quan đến người dùng
 });
 
 export default rootReducer;

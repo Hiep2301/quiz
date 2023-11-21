@@ -1,9 +1,11 @@
+// action types
 import {
   FETCH_USER_LOGIN_SUCCESS,
   FETCH_USER_LOGOUT_SUCCESS,
   FETCH_USER_UPDATE_SUCCESS,
 } from "../action/userAction";
 
+// trạng thái ban đầu
 const INITIAL_STATE = {
   account: {
     access_token: "",
@@ -57,7 +59,7 @@ const userReducer = (state = INITIAL_STATE, action) => {
       };
 
     default:
-      return state;
+      return state; // Trả về trạng thái hiện tại nếu không có action nào khớp
   }
 };
 
