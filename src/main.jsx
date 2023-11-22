@@ -33,7 +33,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <Suspense fallback={<div>Loading...</div>}>
           <Routes>
             <Route path="/" element={<App />}>
-              {/* Khi truyền attribute index thì sẽ hiển thị giao diện của component vào Outlet của Route cha */}
+              {/* Khi truyền attribute index thì sẽ hiển thị giao diện của component đó khi chạy vào route của component App */}
               <Route index element={<HomePage />} />
               <Route
                 path="user"
@@ -49,6 +49,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
             <Route path="/quiz/:id" element={<DetailsQuiz />} />
 
             <Route path="/admin" element={<Admin />}>
+              {/* Nested Routes: Lồng các route của components con vào route của component cha (phía component cha sử dụng thẻ <Outlet/> để hiển thị các components con) */}
               <Route index element={<Dashboard />} />
               <Route path="manage-user" element={<ManageUser />} />
               <Route path="manage-quiz" element={<ManageQuiz />} />

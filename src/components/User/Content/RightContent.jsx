@@ -11,8 +11,8 @@ const RightContent = ({
   const [activeQuestionIndex, setActiveQuestionIndex] =
     useState(currentQuestion);
 
+  // Sử dụng useEffect để cập nhật activeQuestionIndex mỗi khi currentQuestion thay đổi
   useEffect(() => {
-    // Sync activeQuestionIndex with currentQuestion prop
     setActiveQuestionIndex(currentQuestion);
   }, [currentQuestion]);
 

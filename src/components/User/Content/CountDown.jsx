@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 const CountDown = ({ onTimeOut }) => {
   const [count, setCount] = useState(300);
 
+  // Hàm chuyển đổi giây sang định dạng HH:MM:SS
   const toHHMMSS = (secs) => {
     const sec_num = parseInt(secs, 10);
     const hours = Math.floor(sec_num / 3600);
@@ -15,7 +16,9 @@ const CountDown = ({ onTimeOut }) => {
       .join(":");
   };
 
+  // Sử dụng useEffect để thiết lập một interval. Mỗi giây, giảm count đi 1 đơn vị.
   useEffect(() => {
+    // Nếu count đạt 0, gọi hàm onTimeOut và dừng interval.
     if (count === 0) {
       onTimeOut();
       return;
@@ -25,6 +28,7 @@ const CountDown = ({ onTimeOut }) => {
       setCount(count - 1);
     }, 1000);
 
+    // Dọn dẹp interval khi component unmount hoặc khi count thay đổi.
     return () => clearInterval(timer);
   }, [count]);
 

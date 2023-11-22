@@ -7,6 +7,26 @@
   .add-new {
     margin-top: 20px;
 
+    .label-upload {
+      display: flex;
+      align-items: center;
+      background: #eee;
+      width: fit-content;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+
+      &:hover {
+        background: #ddd;
+      }
+
+      .icon-image-add {
+        color: green;
+        font-size: 25px;
+        margin-right: 2px;
+      }
+    }
+
     .image-preview {
       margin-top: 10px;
       border-radius: 4px;

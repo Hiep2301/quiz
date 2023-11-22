@@ -9,9 +9,6 @@ const ModalDeleteQuiz = ({
   setShowModalDeleteQuiz,
   dataQuiz,
   fetchDataListQuizzes,
-  fetchDataListQuizzesWithPaginate,
-  currentPage,
-  setCurrentPage,
 }) => {
   const handleClose = () => {
     setShowModalDeleteQuiz(false);

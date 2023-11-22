@@ -56,7 +56,7 @@ const Dashboard = () => {
             </span>
           </div>
           <div className="content-left-child col-5">
-            Total Quiz
+            Total Quiz{" "}
             <span>
               {dataOverview.others ? dataOverview.others.countQuiz : 0}
             </span>

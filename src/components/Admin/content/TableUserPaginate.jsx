@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import ReactPaginate from "react-paginate";
 
 const TableUserPaginate = ({
@@ -46,7 +46,7 @@ const TableUserPaginate = ({
                     Details
                   </button>
                   <button
-                    className="btn btn-primary mx-2"
+                    className="btn btn-success mx-2"
                     onClick={() => {
                       handleClickBtnUpdate(user);
                     }}

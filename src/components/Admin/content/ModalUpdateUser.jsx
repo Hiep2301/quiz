@@ -13,6 +13,7 @@ const ModalUpdateUser = ({
   fetchDataListUsersWithPaginate,
   currentPage,
   setCurrentPage,
+  resetDataUpdate,
 }) => {
   const [imagePreview, setImagePreview] = useState("");
   const [image, setImage] = useState("");
@@ -26,6 +27,7 @@ const ModalUpdateUser = ({
     setImage("");
     setUsername("");
     setEmail("");
+    resetDataUpdate();
   };
 
   useEffect(() => {

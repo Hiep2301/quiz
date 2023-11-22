@@ -4,34 +4,24 @@ import Modal from "react-bootstrap/Modal";
 import { toast } from "react-toastify";
 import _ from "lodash";
 import { putUpdateQuiz } from "../../../../services/apiService";
+import { BiImageAdd } from "react-icons/bi";
+import Lightbox from "react-awesome-lightbox";
+
+import "./ModalUpdateQuiz.scss";
 
 const ModalUpdateQuiz = ({
   isShowModalUpdateQuiz,
   setShowModalUpdateQuiz,
   dataQuizUpdate,
   fetchDataListQuizzes,
-  fetchDataListQuizzesWithPaginate,
-  currentPage,
-  setCurrentPage,
+  resetDataUpdate,
 }) => {
   const [imagePreview, setImagePreview] = useState("");
   const [description, setDescription] = useState("");
   const [name, setName] = useState("");
   const [difficulty, setDifficulty] = useState("");
   const [quizImage, setQuizImage] = useState("");
-
-  const handleClose = () => {
-    setShowModalUpdateQuiz(false);
-    setImagePreview("");
-    setQuizImage("");
-    setDescription("");
-    setName("");
-    setDifficulty("");
-  };
-
-  useEffect(() => {
-    setShowModalUpdateQuiz(isShowModalUpdateQuiz);
-  }, []);
+  const [isPreviewImage, setIsPreviewImage] = useState(false);
 
   useEffect(() => {
     if (!_.isEmpty(dataQuizUpdate)) {
@@ -45,6 +35,20 @@ const ModalUpdateQuiz = ({
       }
     }
   }, [dataQuizUpdate]);
+
+  useEffect(() => {
+    setShowModalUpdateQuiz(isShowModalUpdateQuiz);
+  }, []);
+
+  const handleClose = () => {
+    setImagePreview("");
+    setQuizImage("");
+    setDescription("");
+    setName("");
+    setDifficulty("");
+    setShowModalUpdateQuiz(false);
+    resetDataUpdate();
+  };
 
   const handleSubmitQuiz = async () => {
     if (!name) {
@@ -132,12 +136,20 @@ const ModalUpdateQuiz = ({
               </select>
             </div>
             <div className="col-md-12">
-              <label className="form-label">Image</label>
+              <label
+                className="form-label label-upload"
+                htmlFor="quiz-questions"
+              >
+                <BiImageAdd className="icon-image-add" />
+                <span>Upload image</span>
+              </label>
               <input
+                id="quiz-questions"
                 type="file"
                 className="form-control"
                 aria-label="file image"
                 required
+                hidden
                 onChange={(event) => {
                   setImagePreview(URL.createObjectURL(event.target.files[0]));
                   setQuizImage(event.target.files[0]);
@@ -153,6 +165,7 @@ const ModalUpdateQuiz = ({
                   }}
                 >
                   <img
+                    onClick={() => setIsPreviewImage(true)}
                     src={imagePreview}
                     alt="Preview"
                     style={{
@@ -162,6 +175,13 @@ const ModalUpdateQuiz = ({
                     }}
                   />
                 </div>
+              )}
+              {isPreviewImage && (
+                <Lightbox
+                  image={imagePreview}
+                  title={"Image Preview"}
+                  onClose={() => setIsPreviewImage(false)}
+                />
               )}
             </div>
           </form>

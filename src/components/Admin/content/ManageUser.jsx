@@ -60,13 +60,17 @@ const ManageUser = () => {
     setDataUser(user);
   };
 
+  const resetDataUpdate = () => {
+    setDataUserUpdate({});
+  };
+
   return (
     <div className="manage-user-container">
       <div className="title">Manage User</div>
       <div className="user-content">
         <div className="btn-add-user">
           <button
-            className="btn btn-success"
+            className="btn btn-primary"
             onClick={() => setShowModalCreateUser(true)}
           >
             Add new user
@@ -106,6 +110,7 @@ const ManageUser = () => {
           fetchDataListUsersWithPaginate={fetchDataListUsersWithPaginate}
           currentPage={currentPage}
           setCurrentPage={setCurrentPage}
+          resetDataUpdate={resetDataUpdate}
         />
         <ModalUserDetails
           isShowModalUserDetails={showModalUserDetails}

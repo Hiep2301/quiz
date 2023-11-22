@@ -6,7 +6,6 @@ import {
   postCreateNewQuiz,
 } from "../../../../services/apiService";
 import TableQuiz from "./TableQuiz";
-import Accordion from "react-bootstrap/Accordion";
 import ModalDeleteQuiz from "./ModalDeleteQuiz";
 import ModalUpdateQuiz from "./ModalUpdateQuiz";
 import ModalQuizDetails from "./ModalQuizDetails";
@@ -14,6 +13,8 @@ import QuizQA from "./QuizQA";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 import AssignQuiz from "./AssignQuiz";
+import { BiImageAdd } from "react-icons/bi";
+import Lightbox from "react-awesome-lightbox";
 
 import "./ManageQuiz.scss";
 
@@ -23,6 +24,7 @@ const ManageQuiz = () => {
   const [difficulty, setDifficulty] = useState("EASY");
   const [image, setImage] = useState("");
   const [imagePreview, setImagePreview] = useState("");
+  const [isPreviewImage, setIsPreviewImage] = useState(false);
   const [listQuizzes, setListQuizzes] = useState([]);
   const [showModalQuizDetails, setShowModalQuizDetails] = useState(false);
   const [showModalUpdateQuiz, setShowModalUpdateQuiz] = useState(false);
@@ -96,6 +98,10 @@ const ManageQuiz = () => {
     setDataQuiz(quiz);
   };
 
+  const resetDataUpdate = () => {
+    setDataQuizUpdate({});
+  };
+
   return (
     <div className="quiz-container mb-3">
       <Tabs
@@ -138,10 +144,18 @@ const ManageQuiz = () => {
                 />
               </div>
               <div className="mb-3">
-                <label className="form-label">Upload image</label>
+                <label
+                  className="form-label label-upload"
+                  htmlFor="imageUpload"
+                >
+                  <BiImageAdd className="icon-image-add" />
+                  <span>Upload image</span>
+                </label>
                 <input
                   className="form-control"
                   type="file"
+                  id="imageUpload"
+                  hidden
                   accept="image/*"
                   onChange={(event) => {
                     setImagePreview(URL.createObjectURL(event.target.files[0]));
@@ -152,15 +166,23 @@ const ManageQuiz = () => {
               {imagePreview && (
                 <div className="image-preview mb-3">
                   <img
+                    onClick={() => setIsPreviewImage(true)}
                     src={imagePreview}
-                    alt="Preview"
+                    alt="Image Preview"
                     style={{
                       margin: "10px",
-                      maxWidth: "10%",
+                      maxWidth: "20%",
                       height: "auto",
                     }}
                   />
                 </div>
+              )}
+              {isPreviewImage && (
+                <Lightbox
+                  image={imagePreview}
+                  title={"Image Preview"}
+                  onClose={() => setIsPreviewImage(false)}
+                />
               )}
               <div className="float-end">
                 <button
@@ -200,6 +222,7 @@ const ManageQuiz = () => {
         setShowModalUpdateQuiz={setShowModalUpdateQuiz}
         dataQuizUpdate={dataQuizUpdate}
         fetchDataListQuizzes={fetchDataListQuizzes}
+        resetDataUpdate={resetDataUpdate}
       />
       <ModalQuizDetails
         isShowModalQuizDetails={showModalQuizDetails}
